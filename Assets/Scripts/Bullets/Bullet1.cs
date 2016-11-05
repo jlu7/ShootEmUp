@@ -15,10 +15,10 @@ public class Bullet1 : MonoBehaviour
     {
         while (true)
         {
-            transform.position += new Vector3(0, .1f, 0);
-            if (transform.position.y > 10)
+            transform.position += new Vector3(.1f, 0, 0);
+            if (transform.position.x > 10)
             {
-                Destroy(this);
+                Destroy(this.gameObject);
             }
             yield return null;
         }

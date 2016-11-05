@@ -5,7 +5,7 @@ public class MoveWithClick : MonoBehaviour
 {
     float Speed = 5f;
     Vector3 Target = new Vector3();
-    int CoolDownCount = 20;
+    int CoolDownCount = 5;
 
     void Start()
     {
@@ -18,11 +18,11 @@ public class MoveWithClick : MonoBehaviour
     {
         while (true)
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit) && Input.GetMouseButton(0))
+            Vector3 pos = Input.mousePosition;
+            pos = Camera.main.ScreenToWorldPoint(pos);
+            if (Input.GetMouseButton(0))
             {
-                Target = hit.point;
+                Target = pos;
             }
             transform.position = Vector3.Lerp(transform.position, new Vector3(Target.x, Target.y, transform.position.z), Speed * Time.deltaTime);
             yield return null;
