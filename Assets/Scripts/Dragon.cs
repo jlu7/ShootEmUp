@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MoveWithClick : MonoBehaviour
+public class Dragon : MonoBehaviour
 {
+    public int Health = 5;
+
     float Speed = 5f;
-    Vector3 Target = new Vector3();
     int CoolDownCount = 5;
+    Vector3 Target = new Vector3();
 
     void Start()
     {
@@ -37,7 +39,6 @@ public class MoveWithClick : MonoBehaviour
             if (coolDown <= 0 && Input.GetMouseButton(0))
             {
                 coolDown = CoolDownCount;
-                Debug.Log("Shoot");
                 GameObject blah = Instantiate(Resources.Load<GameObject>("Prefabs/Sphere"));
                 blah.transform.position = this.transform.position;
             }

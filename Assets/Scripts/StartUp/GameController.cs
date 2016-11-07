@@ -44,7 +44,6 @@ public class GameController : MonoBehaviour
         NewView.transform.parent = AnchorRef;
         NewView.transform.localScale = new Vector3(1, 1, 1);
         NewView.transform.localPosition = new Vector3(0, 0, 0);
-
         Views.Push(NewView.transform);
     }
 }
